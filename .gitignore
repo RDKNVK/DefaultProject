@@ -1,9 +1,9 @@
 node_modules/
-_materials/
-images/
-.gitignore
-.gitattributes
-package.json
-Gruntfile.js
-scripts/jquery.js
-scripts/html5shiv.js
+#_materials/
+#images/
+#.gitignore
+#.gitattributes
+#package.json
+#Gruntfile.js
+#scripts/jquery.js
+#scripts/html5shiv.js
