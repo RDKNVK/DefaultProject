@@ -8,10 +8,8 @@
 		<meta name="author" content="" />
 		<meta name="robots" content="index,follow" />
 
-		<!-- !!! replace with generated css !!! -->
-		<link rel="stylesheet/less" type="text/css" href="less/style.less" media="screen" />
-		<link rel="stylesheet/less" type="text/css" href="less/print.less" media="print" />
-		<script src="devel/less.js"></script>
+		<link href="./styles/style.css" rel="stylesheet" media="screen" />
+		<link href="./styles/print.css" rel="stylesheet" media="print" />
 		
 		<!--[if lt IE 9]>
 			<script src="./scripts/html5shiv.js"></script>
