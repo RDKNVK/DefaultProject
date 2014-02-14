@@ -25,19 +25,19 @@ module.exports = function(grunt) {
 			dist: {
 				src: [
 					'scripts/*.js',
-					'!scripts/production.js',
-					'!scripts/production.min.js',
+					'!scripts/main.js',
+					'!scripts/main.full.js',
 					'!scripts/html5shiv.js',
 					'!scripts/jquery*'
 				],
-				dest: 'scripts/production.js'
+				dest: 'scripts/main.js'
 
 			}
 		},
 		uglify: {
 			build: {
-				src: 'scripts/production.js',
-				dest: 'scripts/production.min.js'
+				src: 'scripts/main.full.js',
+				dest: 'scripts/main.js'
 			}
 		},
 		less: {
@@ -47,16 +47,16 @@ module.exports = function(grunt) {
 					cleancss: true
 				},
 				files: {
-					'styles/style.min.css': 'less/style.less',  // destination: source
-					'styles/print.min.css': 'less/print.less'
+					'styles/style.css': 'less/style.less',  // destination: source
+					'styles/print.css': 'less/print.less'
 				}
 			},
 			full: {
 				options: {
 				},
 				files: {
-					'styles/style.css': 'less/style.less',  // destination: source
-					'styles/print.css': 'less/print.less'
+					'styles/style.full.css': 'less/style.less',  // destination: source
+					'styles/print.full.css': 'less/print.less'
 				}
 			}
 		},
@@ -71,7 +71,7 @@ module.exports = function(grunt) {
 		},
 
 		jshint: {
-			files: ['scripts/production.js'],
+			files: ['scripts/main.full.js'],
 			options: {
 				globals: {
 					jQuery: true,
