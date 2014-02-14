@@ -4,6 +4,10 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 
+		livereloadx: {
+			static: true,
+			dir: '.'
+		},
 		watch: {
 			scripts: {
 				files: ['.js'],
@@ -40,23 +44,22 @@ module.exports = function(grunt) {
 				dest: 'scripts/production.min.js'
 			}
 		},
-		less: {
+		sass: {
 			min: {
 				options: {
-					compress: true,
-					cleancss: true
+					style: 'compressed'
 				},
 				files: {
-					'styles/style.min.css': 'less/style.less',  // destination: source
-					'styles/print.min.css': 'less/print.less'
+					'styles/style.css': 'sass/style.scss',  // destination: source
+					'styles/print.css': 'sass/print.scss'
 				}
 			},
 			full: {
 				options: {
 				},
 				files: {
-					'styles/style.css': 'less/style.less',  // destination: source
-					'styles/print.css': 'less/print.less'
+					'styles/style.full.css': 'sass/style.scss',  // destination: source
+					'styles/print.full.css': 'sass/print.scss'
 				}
 			}
 		},
@@ -88,12 +91,14 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-contrib-less');
+	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-autoprefixer');
+	grunt.loadNpmTasks('livereloadx');
+
 	//grunt.loadNpmTasks('grunt-contrib-imagemin');
 
 	// 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-	grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'less', 'autoprefixer']);
+	grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'sass', 'autoprefixer', 'livereloadx']);
 
 };
 
